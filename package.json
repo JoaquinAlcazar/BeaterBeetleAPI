@@ -1,0 +1,11 @@
+{
+  "name": "beaterbeetleapi",
+  "version": "1.0.0",
+  "description": "API for Beater Beetle Game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Joaquin Alcazar",
+  "license": "ISC"
+}
