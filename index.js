@@ -4,10 +4,11 @@ const UserRoutes = require("./Users/routes");
 const AuthorizationRoutes = require ("./Users/routes");
 const sequelize = require("./Users/db");
 const User = require("./models/User");
+const { login } = require("./controllers/AuthorizationController");
 
 (async () => {
     try {
-        await sequelize.sync({ force: true }); // Esto recrea la base de datos
+        await sequelize.sync({ alter: true }); 
         console.log("📌 Base de datos sincronizada correctamente.");
     } catch (error) {
         console.error("❌ Error al sincronizar la base de datos:", error);
@@ -35,9 +36,7 @@ app.post("/signup", (request, response) => {
     response.send({ message: "Signup endpoint" });
 });
 
-app.post("/login", (request, response) => {
-    response.send({ message: "Login endpoint" });
-});
+app.post("/login", login);
 
 app.get("/user", (request, response) => {
     response.send({ message: "Get user endpoint" });

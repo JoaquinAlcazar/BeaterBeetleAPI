@@ -5,16 +5,33 @@ const User = sequelize.define("User", {
     username: {
         type: DataTypes.STRING,
         allowNull: false,
-        unique: true
+        unique: true,
     },
     password: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
     },
     role: {
-        type: DataTypes.STRING,  // Asegúrate de que esta línea está presente
-        defaultValue: "USER"
+        type: DataTypes.STRING,
+        defaultValue: "USER",
+    },
+    maxRound: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: 0,
+    },
+    maxEggs: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: 0,
+    },
+    maxKalories: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        defaultValue: 0,
     }
+}, {
+    timestamps: true,
 });
 
-module.exports = User;
+module.exports = { User };
