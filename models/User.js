@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { Sequelize, DataTypes } = require("sequelize");
 const sequelize = require("../Users/db"); // Ajusta la ruta si es necesario
 
 const User = sequelize.define("User", {
@@ -15,7 +15,7 @@ const User = sequelize.define("User", {
         type: DataTypes.STRING,
         defaultValue: "USER",
     },
-    maxRound: {
+    maxRounds: {
         type: DataTypes.INTEGER,
         allowNull: true,
         defaultValue: 0,
@@ -34,4 +34,4 @@ const User = sequelize.define("User", {
     timestamps: true,
 });
 
-module.exports = { User };
+module.exports = User;

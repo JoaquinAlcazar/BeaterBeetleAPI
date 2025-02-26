@@ -3,7 +3,7 @@ const roles = require("../config"); // Ajusta la ruta según tu estructura
 const UserModel = require("../models/User"); // Ajusta la ruta según la estructura del proyecto
 const jwt = require("jsonwebtoken"); // Asegúrate de tener instalado jsonwebtoken
 const config = require("../config"); // Asegúrate de tener un archivo config.js con la clave secreta
-const { User } = require("../models/User"); // Modelo de usuario
+const User = require("../models/User"); // Modelo de usuario
 
 function generateAccessToken(username, userId) {
     return jwt.sign({ username, userId }, config.JWT_SECRET, { expiresIn: "1h" });
@@ -56,7 +56,7 @@ module.exports = {
             let role = payload.role || roles.USER;
 
             // Crear usuario en la base de datos
-            const user = await UserModel.create({
+            const user = await User.create({
                 username: payload.username,
                 password: encryptedPassword,
                 role: role
